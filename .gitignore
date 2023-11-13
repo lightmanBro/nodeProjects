@@ -1,0 +1,19 @@
+#IntelliJ IDEA
+.idea/
+
+# Compile bytecode
+*.class
+
+# User specific files
+*.iml
+*.ipr
+*.iws
+
+# Gradle files
+.gradle/
+
+# files created by the IDE
+out/
+
+# Node.js
+node_modules/

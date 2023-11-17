@@ -118,14 +118,20 @@ gap:.5rem;
 }
 .author-image{
 width:100%;
-height:70%;}
+height:80%;
+display:flex;
+justify-content:center;
+margin-bottom:2rem
+}
 .social-button{
 text-decoration:none;
 color:white;
 background:grey;
 padding:1rem
 }
-
+.author-image img{
+height:100%;
+}
 /*Help Page*/
 .help-catalog-container{
 display:flex;

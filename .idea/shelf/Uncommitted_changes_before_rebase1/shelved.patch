@@ -1,0 +1,73 @@
+Index: book.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/book.json b/book.json
+new file mode 100644
+--- /dev/null	
++++ b/book.json	
+@@ -0,0 +1,1 @@
++{"title":"The tale of two Cities","author":"George Owell","isbn":"978-1449325-028-5"}
+\ No newline at end of file
+Index: notes-app/book.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/notes-app/book.json b/notes-app/book.json
+deleted file mode 100644
+--- a/notes-app/book.json	(revision eeb3c8ad67090c055b30a0cd96980bf3ee6df7ee)
++++ /dev/null	(revision eeb3c8ad67090c055b30a0cd96980bf3ee6df7ee)
+@@ -1,1 +0,0 @@
+-{"title":"The tale of two Cities","author":"George Owell","isbn":"978-1449325-028-5"}
+\ No newline at end of file
+Index: notes-app/app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const fs = require('fs');\r\nconst chalk = require('chalk');\r\nconst validator = require('validator');\r\nconst yargs = require('yargs');//yargs for working on the command line and accessing the config and process variables.\r\nconst getNotes = require('./notes')\r\n\r\n\r\n//Using the default file system module.\r\nfs.writeFileSync('notes.txt','This file was created by nodeJs');\r\nfs.appendFileSync('notes.txt',' I have added this text by the append file method\\n');\r\n\r\n//Using the validator module.\r\nconsole.log(validator.isEmail('omotosodavid@gmail.com'));\r\nconsole.log(validator.isURL('https://mead.io'));\r\n\r\n//Using chalk to color the message.\r\nconsole.log(chalk.blue(validator.isIP('172.16.58.3')));\r\nconsole.log(chalk.bold.inverse.green('Success'));\r\n\r\n//How to receive arguments from the terminal using Node.js.\r\n//console.log(process.argv[2])\r\n//logging all the process arguments to the terminal.\r\n//console.log(process.argv);\r\n\r\n// working on the arguments received from the terminal\r\n//const command = process.argv[2];\r\n//if(command === 'add'){\r\n//    console.log(chalk.bold.yellow('Adding notes'))\r\n//    }else if(command === 'remove'){\r\n//    console.log(chalk.red.inverse.yellow('Removing notes'))\r\n//    }\r\n//    else if(command === 'list'){\r\n//    console.log(chalk.green.inverse.yellow('Listing notes'))\r\n//    }\r\n//console.log(yargs.argv)\r\n\r\n\r\n\r\n// Using yargs to create new add command;\r\nyargs.command({\r\n    command: 'add',\r\n    describe: 'Add a new note',\r\n    builder: {\r\n        title: {\r\n            describe: 'Note title',\r\n            demandOption: true,\r\n            type:'string'\r\n            },body: {\r\n            describe: 'This is the body of the note',\r\n            demandOption: true,\r\n            type:'string'}\r\n        },\r\n    handler: function(argv){ console.log('Title: ' + argv.title + '\\nDescription: ' + argv.body)}\r\n    })\r\n\r\n// using yargs to create new remove command;\r\nyargs.command({\r\n    command:'remove',\r\n    describe: 'Remove a note',\r\n    handler: function(){ console.log(this.describe)}\r\n    })\r\n\r\n// using yargs to create new list command;\r\nyargs.command({\r\n    command: 'list',\r\n    describe: 'List all the notes',\r\n    handler: function(){ console.log(this.describe)}\r\n    })\r\n// using yargs to create new read command;\r\nyargs.command({\r\n    command:'read',\r\n    describe: 'Read a note',\r\n    handler: function(){ console.log(this.describe)}\r\n    })\r\n\r\n console.log(yargs.argv)\r\n //Adding to github
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/notes-app/app.js b/notes-app/app.js
+--- a/notes-app/app.js	(revision eeb3c8ad67090c055b30a0cd96980bf3ee6df7ee)
++++ b/notes-app/app.js	(date 1699876982297)
+@@ -74,4 +74,4 @@
+     })
+ 
+  console.log(yargs.argv)
+- //Adding to github
+\ No newline at end of file
++ //Adding to github
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Default ignored files\r\n/shelf/\r\n/workspace.xml\r\n\r\nnode_modules/\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+--- a/.idea/.gitignore	(revision eeb3c8ad67090c055b30a0cd96980bf3ee6df7ee)
++++ b/.idea/.gitignore	(date 1699876982297)
+@@ -1,5 +1,8 @@
+ # Default ignored files
+ /shelf/
+ /workspace.xml
++<<<<<<< HEAD
+ 
+ node_modules/
++=======
++>>>>>>> 301291c1c88e5fc03c6e7a6734e8e24774ad9617
+Index: notes-app/notes.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/notes-app/notes.txt b/notes-app/notes.txt
+deleted file mode 100644
+--- a/notes-app/notes.txt	(revision eeb3c8ad67090c055b30a0cd96980bf3ee6df7ee)
++++ /dev/null	(revision eeb3c8ad67090c055b30a0cd96980bf3ee6df7ee)
+@@ -1,1 +0,0 @@
+-This file was created by nodeJs I have added this text by the append file method
+diff --git a/.gitignore b/.gitignore
+new file mode 100644

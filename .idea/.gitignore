@@ -1,1 +1,5 @@
-.idea/node_modules/
+# Default ignored files
+/shelf/
+/workspace.xml
+
+node_modules

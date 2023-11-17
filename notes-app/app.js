@@ -2,7 +2,7 @@ const fs = require('fs');
 const chalk = require('chalk');
 const validator = require('validator');
 const yargs = require('yargs');//yargs for working on the command line and accessing the config and process variables.
-const notes = require('./notes');
+const getNotes = require('./notes')
 
 
 //Using the default file system module.
@@ -50,52 +50,27 @@ yargs.command({
             demandOption: true,
             type:'string'}
         },
-    handler(argv){
-        notes.addNotes(argv.title, argv.body)
-    }
-
+    handler: function(argv){ console.log('Title: ' + argv.title + '\nDescription: ' + argv.body)}
     })
 
 // using yargs to create new remove command;
 yargs.command({
     command:'remove',
-describe: 'Remove a note',
-    builder: {
-
-    title:{
-        describe:'Remove a note',
-        demandOption:true,
-        type:'string'},
-},
-    handler(argv) {
-    notes.removeNotes(argv.title)
-            }
-        }
-    );
+    describe: 'Remove a note',
+    handler: function(){ console.log(this.describe)}
+    })
 
 // using yargs to create new list command;
 yargs.command({
     command: 'list',
     describe: 'List all the notes',
-    handler(){
-    notes.getNotes()
-    }
+    handler: function(){ console.log(this.describe)}
     })
-
-
 // using yargs to create new read command;
 yargs.command({
     command:'read',
     describe: 'Read a note',
-    builder: {
-    title:{
-        describe:'Read a note',
-        demandOption:true,
-        type:'string'},
-        },
-    handler(argv){
-    notes.readNotes(argv.title)
-    }
+    handler: function(){ console.log(this.describe)}
     })
 
  console.log(yargs.argv)
